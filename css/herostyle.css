@@ -1,0 +1,332 @@
+/*:root {
+  --primary-light: #60ad5e;
+  --primary-dark: #005005;
+  --primary: #2e7d32;
+  --secondary-light: #ffffb0;
+  --secondary-dark: #ca9b52;
+  --secondary: #ffcc80;
+}*/
+body {
+  padding-top: 40px;
+  font-family: 'Trirong', Garamond;
+  color: black;
+}
+h3 {
+  text-align: center;
+}
+#rescue-nav a,
+#rescue-nav a:visited,
+#rescue-nav a:focus {
+  font-size: 20px;
+  color: white;
+}
+#rescue-nav a:hover {
+  color: #ffffb0;
+}
+#rescue-nav {
+  border: none;
+  background-color: #005005;
+  color: white;
+}
+.row {
+  margin: 0;
+  padding: 0;
+}
+#intro {
+  width: 100%;
+  height: 650px;
+  padding: 50px 0 50px 50px;
+  background-image: url("https://images.unsplash.com/photo-1442605527737-ed62b867591f?dpr=1&amp;auto=format&amp;crop=entropy&amp;fit=crop&amp;w=767&amp;h=511&amp;q=80&amp;cs=tinysrgb");
+  background-position: center;
+  background-size: cover;
+}
+.insettext {
+  background-color: #2e7d32;
+  width: 450px;
+  height: auto;
+  padding: 20px;
+  color: white;
+}
+
+.insettext > p,
+#donate p,
+#adoption > div > p {
+  margin-top: 50px;
+  font-size: 20px;
+  text-align: left;
+}
+#adoption {
+  height: auto;
+  padding: 15px;
+  text-align: center;
+}
+#adoption h2 {
+  text-align: left;
+}
+#adoption > div:first-of-type > div {
+  background: #ffcc80;
+  width: 300px;
+  height: 50px;
+  font-size: 20px;
+  margin: 50px auto 0 auto;
+}
+#sheltersearch {
+  width: 200px;
+  height: 40px;
+  color: black;
+  text-align: center;
+  font-size: 20px;
+  margin-top: 5px;
+  border: none;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#sheltersearchgo {
+  color: white;
+  text-align: center;
+  margin-left: 20px;
+  cursor: pointer;
+}
+#sheltersearch:focus {
+  outline: none;
+}
+#shelters {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  margin: 20px 0;
+}
+.shelter {
+  background: #ffcc80;
+  height: auto;
+  width: 300px;
+  padding: 5px;
+  margin: 5px auto;
+  text-align: center;
+  cursor: pointer;
+  transition: all .3s;
+}
+.shelter:hover {
+  box-shadow: 2px 2px 3px grey;
+  transform: scale(1.03);
+}
+.shelter > div {
+  background: #ca9b52;
+  color: white;
+}
+.shelter-detail {
+  background: #ffcc80;
+  height: auto;
+  width: 80%;
+  padding: 5px;
+  margin: 5px auto;
+  border-radius: 5px;
+  text-align: left;
+}
+.shelter-header {
+  border-bottom: 3px solid black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: auto;
+  margin: 5px auto;
+  width: 95%;
+}
+.shelter-header > div {
+  width: 400px;
+  height: 100%;
+  margin: 0 auto;
+}
+.shelter-name {
+  text-align: center;
+}
+.shelter-pets {
+  width: 95%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 5px auto;
+}
+.shelter-pets > div {
+  width: 400px;
+  height: auto;
+  margin: 5px auto;
+  padding: 2px;
+}
+.shelter-pets > div > p {
+  margin-top: 10px;
+  font-size: 15px;
+}
+.shelter-pets > div > span {
+  display: block;
+}
+.shelter-pets figure {
+  width: 100%;
+  overflow: hidden;
+}
+.shelter-pets figure img {
+  display: block;
+  margin: 0 auto;
+  height: 300px;
+  max-width: 100%;
+}
+.shelter-pets figcaption {
+  background: #ca9b52;
+  color: white;
+  height: 25px;
+  text-align: center;
+}
+.shelter-pets figcaption h4 {
+  line-height: 25px;
+}
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+#donate {
+  width: 100%;
+  height: 650px;
+  background-image: url("https://images.unsplash.com/photo-1470074197821-3abc53a30868?dpr=1&amp;auto=format&amp;fit=crop&amp;w=1199&amp;h=674&amp;q=80&amp;cs=tinysrgb");
+  background-position: left;
+  background-size: cover;
+  padding: 50px 70px;
+}
+#donate > div {
+  float: right;
+  background-color: #2e7d32;
+  width: 450px;
+  height: auto;
+  padding: 20px;
+  color: white;
+}
+.home-button {
+  background: #60ad5e;
+  width: 200px;
+  height: 35px;
+  color: white;
+  text-align: center;
+  line-height: 35px;
+  margin-top: 50px;
+  font-size: 20px;
+}
+.home-button:hover {
+  background: #ffcc80;
+  color: black;
+  cursor: pointer;
+}
+#bizsupport {
+  height: 350px;
+  padding-top: 30px;
+  text-align: center;
+}
+#bizsupport h4 {
+  margin-bottom: 30px;
+}
+#foster {
+  width: 100%;
+  height: 650px;
+  padding: 50px 0 50px 50px;
+  background-image: url("https://images.unsplash.com/photo-1440484433300-c3317c44152e?dpr=1&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=912&amp;q=80&amp;cs=tinysrgb");
+  background-position: left;
+  background-size: cover;
+}
+footer > div {
+  padding: 10px 10px;
+}
+footer p {
+  padding: 0px 0px 0px 10px;
+}
+#newssubmit {
+  margin: 30px 0px 0px 10px;
+  width: 100px;
+  border: 1px solid rgb(150, 150, 150);
+  color: rgb(150, 150, 150);
+  text-align: center;
+}
+footer input {
+  margin: 10px 0px 0px 10px;
+}
+
+@media screen and (max-width: 367px) {
+  #intro,
+  #donate,
+  #bizsupport,
+  #foster,
+  #adoption,
+  #shelters {
+    padding: 1%;
+    width: 100%;
+    height: auto;
+  }
+  #intro,
+  #donate,
+  #foster {
+    height: auto;
+    background: #ffcc80;
+  }
+  .insettext > p,
+  #donate p,
+  #adoption p {
+    font-size: 17px;
+  }
+  .insetblk, .insettext, #donate > div {
+    width: 100%;
+    height: auto;
+  }
+  #bizsupport > div > div {
+    margin: 10px auto;
+  }
+  footer input {
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 368px) and (max-width: 767px) {
+  #intro,
+  #donate,
+  #bizsupport,
+  #foster {
+    padding: 5%;
+  }
+  #intro,
+  #donate,
+  #foster {
+    width: 100%;
+    height: auto;
+    background: #ffcc80;
+  }
+  .insetblk,
+  .insettext,
+  #donate > div {
+    width: auto;
+    height: auto;
+  }
+  #adoption,
+  #shelters {
+    height: auto;
+  }
+  #donate > div {
+    float: none;
+  }
+  #bizsupport {
+    height: auto;
+  }
+  #bizsupport > div > div {
+    margin: 10px auto;
+  }
+}
+
+@media screen and (min-width: 1027px) and (max-width: 1411px) {
+  #shelters {
+    margin: 20px 0;
+  }
+}
