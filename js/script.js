@@ -1,17 +1,17 @@
 var $petfinderAPI = 'https://api.petfinder.com/';
 var $devkey = '3c73470956892905e562a55f0e113f50';
-var selectedshelter = undefined;
+var $selectedshelter = undefined;
 
 function updateShelterStatus(message) {
   console.log(message);
   if(message) {
-    $('#searchstatus').fadeOut("slow","swing", function() {
-      $('#searchstatus').html('<h3>' + message + '</h3>')
+    $('#search-status').fadeOut("slow","swing", function() {
+      $('#search-status').html('<h3>' + message + '</h3>')
         .fadeIn("slow","swing");
     });
   } else {
-    $('#searchstatus').fadeOut("slow","swing", function() {
-      $('#searchstatus').empty();
+    $('#search-status').fadeOut("slow","swing", function() {
+      $('#search-status').empty();
     });
   };
 };
@@ -102,7 +102,7 @@ function getShelter(id, callback) {
         shelteremail: shelterdetail.email.$t ? shelterdetail.email.$t : "Not available"
       }
       //console.log('shelter object is ', shelterObject);
-      selectedshelter = shelterObject;
+      $selectedshelter = shelterObject;
     })
     .error(function(err) {
       console.log('Get shelter by ID error! ' + err);
@@ -193,8 +193,8 @@ function getSelectedShelter(id) {
   //could not figure out a way to make this async after getShelter
   var timer = setInterval(function(){
     console.log('waiting on shelter');
-    if(selectedshelter){
-      renderSelectedShelter(selectedshelter);
+    if($selectedshelter){
+      renderSelectedShelter($selectedshelter);
       updateShelterStatus(null);
       clearInterval(timer);
       return;
@@ -252,13 +252,27 @@ $(document).ready(function() {
     });
   });
 
-  $('#sheltersearchgo').click(function(){
-    var zip = $('#sheltersearch').val()
+  $('#shelter-searchgo').click(function(){
+    var zip = $('#shelter-search').val()
     if(zip.length === 5) {
       console.log('searching ', zip);
       getSheltersZip(zip);
     } else {
       updateShelterStatus('Oops! That doesn\'t look like a valid zip code.');
     }
+  });
+
+  $(document).scroll(function(){
+    var $scroll = $(document).scrollTop();
+    if ($scroll > 300) {
+      $('#rescue-nav').css('background','#005005');
+    } else if ($scroll == 0) {
+      $('#rescue-nav').css('background','none');
+    }
+  });
+
+  $('#rescue-navbar-collapse a, #logo').click(function(){
+    $('#rescue-navbar-collapse').removeClass("in");
+    $('#rescue-navbar-collapse').attr("aria-expanded",false);
   });
 });

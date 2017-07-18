@@ -8,8 +8,8 @@
     <title>Rescue Family</title>
     <link rel="stylesheet" href="css/css-reset.css" />
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Trirong" rel="stylesheet" />
-    <link rel="stylesheet" href="css/herostyle.css" />
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
+    <link rel="stylesheet" href="css/basicstyle.css" />
 </head>
 
 <body>
@@ -17,14 +17,16 @@
         <nav class="navbar navbar-default navbar-fixed-top" id="rescue-nav" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#example-navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="glyphicon glyphicon-menu-hamburger"></span>
-      </button>
+                    <button type="button" class="navbar-toggle collapsed"
+                        data-toggle="collapse"
+                        data-target="#rescue-navbar-collapse">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="glyphicon glyphicon-menu-hamburger"></span>
+                    </button>
                     <a class="navbar-brand" href="#" id="logo">Rescue Family</a>
                 </div>
                 <!-- Collect the nav links for toggling -->
-                <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                <div class="collapse navbar-collapse" id="rescue-navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <a class="rescue-menu" href="#adoption">Adoption</a>
@@ -44,25 +46,17 @@
             </div>
             <!-- /.container -->
         </nav>
-        <h3>"Starting and completing families..."</h3>
     </header>
     <section id="intro">
-        <div class="insetblk">
-            <div class="insettext">
-                <h2>Welcome to Rescue Family</h2>
-                <p>
-                  Families come in all shapes and sizes.
-                  Rescue Family is an online resource, providing access to animal rescue organizations in the Central Texas area.
-                </p>
-                <p>
-                  Our mission is simple, we strive to help find loving homes for the area's most beloved shelter pets.
-                </p>
-                <div class="home-button">
-                    Find Your Family
-                </div>
-
-            </div>
+      <div>
+        <h2>Starting and completing families</h2>
+        <p>
+          Families come in all shapes and sizes. Rescue Family is an online resource, providing access to animal rescue organizations in the Central Texas area.
+        </p>
+        <div class="home-button">
+          Find Your Family
         </div>
+      </div>
     </section>
     <section id="adoption" class="clearfix">
       <div>
@@ -71,11 +65,11 @@
           Search through a listing of Central Texas shelters by zip code.
         </p>
         <div>
-          <input id="sheltersearch" type="number" placeholder="Enter Zip Code" />
-          <span id="sheltersearchgo" class="fa fa-search"></span>
+          <input id="shelter-search" type="number" placeholder="Enter Zip Code" />
+          <span id="shelter-searchgo" class="fa fa-search"></span>
         </div>
         <span>Powered by <a href="www.petfinder.com" target="blank">Petfinder</a></span>
-        <span id="searchstatus"></span>
+        <span id="search-status"></span>
       </div>
       <div id="shelters">
       </div>
@@ -97,8 +91,8 @@
         <h4>Coming Soon: Featured Pets</h4>
     </section>
     <section id="foster">
-        <div class="insetblk">
-            <div class="insettext">
+        <div class="inset-block">
+            <div class="inset-text">
                 <h2>Family Starts with Foster</h2>
                 <p>Change can be difficult, especially for a rescue. It takes a special kind of family to open their home and help these pets find a forever family. It's a critical role that our fosters are committed to fulfill.
                 </p>
