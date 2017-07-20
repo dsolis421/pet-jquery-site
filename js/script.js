@@ -86,7 +86,7 @@ function renderPet(pet) {
   );
 }*/
 
-function getShelter(id, callback) {
+function getShelter(id) {
   updateShelterStatus('Getting that family info...');
   $.getJSON($petfinderAPI + 'shelter.get?id=' + id + '&format=json&key=' + $devkey + '&callback=?')
     .done(function(shelterdata){
@@ -126,11 +126,15 @@ function getSheltersZip(zip) {
               </div>';
             $('#shelters').append(listing);
           };
-          $('#shelters').fadeIn("slow","swing");
+          $('#shelters').fadeIn("slow","swing", function(){
+            $('html, body').animate({
+              scrollTop: $('#shelter-search').offset().top - 60
+            }, 500);
+          });
           $('.shelter').on("click", function() {
             getSelectedShelter($(this).attr('shelterid'));
             $('html, body').animate({
-              scrollTop: $('#adoption').offset().top - 35
+              scrollTop: $('#shelter-search').offset().top - 60
             }, 500);
           });
         });
@@ -229,7 +233,9 @@ function getFeaturedPets() {
   const ZIPSCODES = ['78641','76537','78626','78664','78680','78660','78729','78759','78666','78130'];
   var featured = [];
   for (i = 0; i < 11; i++) {
-    featured.push(getRandomPet(ZIPSCODES[i]));
+    if(ZIPSCODES[i]){
+      featured.push(getRandomPet(ZIPSCODES[i]));
+    }
   }
 }
 
