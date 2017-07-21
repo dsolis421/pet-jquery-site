@@ -14,10 +14,14 @@ h3 {
 }
 
 section {
-  width: 100%;
   height: auto;
+  text-align: center;
+  width: 100%;
 }
 
+section p {
+  font-size: 20px;
+}
 #rescue-nav a,
 #rescue-nav a:visited,
 #rescue-nav a:focus {
@@ -33,7 +37,8 @@ section {
   background: none;
   border: none;
   color: white;
-  transition: all .5s;
+  transition: all 1s;
+  opacity: 0;
 }
 
 .row {
@@ -52,19 +57,20 @@ section {
   background: rgba(0, 80, 5, .5);
   color: white;
   padding: 400px 10% 20px 10%;
-  text-align: center;
+  opacity: 0;
+  transition: all 1s;
 }
 
 #intro > div > div {
   background: #60ad5e;
-  width: 450px;
+  width: 400px;
   height: 50px;
   line-height: 50px;
   font-size: 20px;
   margin: 50px auto 0 auto;
 }
 
-#intro > div a {
+#intro > div a, footer a {
   color: inherit;
   text-decoration: underline;
 }
@@ -97,7 +103,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 #adoption {
   height: auto;
-  text-align: center;
 }
 
 #adoption h2 {
@@ -109,7 +114,6 @@ input[type=number]::-webkit-outer-spin-button {
   flex-direction: row;
   flex-wrap: wrap;
   align-content: center;
-  /*margin: 20px 0;*/
 }
 
 .shelter {
@@ -146,9 +150,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .shelter-detail {
-  background: #2e7d32;
   border-radius: 5px;
-  color: white;
+  color: black;
   height: auto;
   padding: 5px;
   margin: 5px auto;
@@ -186,15 +189,13 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .shelter-pets > div {
+  background: #2e7d32;
+  color: white;
   width: 400px;
   height: auto;
   margin: 5px auto;
   padding: 2px;
-}
-
-.shelter-pets > div > p {
-  margin-top: 10px;
-  font-size: 15px;
+  text-align: center;
 }
 
 .shelter-pets > div > span {
@@ -224,6 +225,21 @@ input[type=number]::-webkit-outer-spin-button {
   line-height: 25px;
 }
 
+#mission {
+  border-top: 1px solid #005005;
+  border-bottom: 1px solid #005005;
+}
+
+#mission > div {
+  height: auto;
+  margin: 0 auto;
+  width: 60%;
+}
+
+#mission i {
+  color: #005005;
+}
+
 footer {
   background: #005005;
   color: white;
@@ -235,14 +251,6 @@ footer > div {
 
 footer p {
   padding: 0px 0px 0px 10px;
-}
-
-#newssubmit {
-  background: #60ad5e;
-  margin: 30px 0px 0px 10px;
-  padding: 5px 10px;
-  width: 100px;
-  text-align: center;
 }
 
 footer input {

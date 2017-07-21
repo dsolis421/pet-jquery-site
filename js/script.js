@@ -52,7 +52,11 @@ function renderSelectedShelter(shelter) {
           <div class="shelter-pets">\
           </div>\
         </div>')
-      .fadeIn("slow","swing",getShelterPets(shelter.shelterid));
+      .fadeIn("slow","swing", function() {
+        $('html, body').animate({
+          scrollTop: $('#shelter-search').offset().top - 60
+        }, 500);
+        },getShelterPets(shelter.shelterid));
       });
 }
 
@@ -111,7 +115,7 @@ function getShelter(id) {
 
 function getSheltersZip(zip) {
   updateShelterStatus('Finding families...');
-  $.getJSON($petfinderAPI + 'shelter.find?location=' + zip + '&format=json&key=' + $devkey + '&callback=?')
+  $.getJSON($petfinderAPI + 'shelter.find?location=' + zip + '&format=json&count=24&key=' + $devkey + '&callback=?')
     .done(function(petApiData){
       //console.log(petApiData);
       if(petApiData.petfinder.hasOwnProperty('shelters')) {
@@ -133,9 +137,6 @@ function getSheltersZip(zip) {
           });
           $('.shelter').on("click", function() {
             getSelectedShelter($(this).attr('shelterid'));
-            $('html, body').animate({
-              scrollTop: $('#shelter-search').offset().top - 60
-            }, 500);
           });
         });
         updateShelterStatus('Here\'s what we found...');
@@ -239,9 +240,16 @@ function getFeaturedPets() {
   }
 }
 
+function lazyLoadIntro() {
+  setTimeout(function(){
+    $('#rescue-nav, #intro > div').css("opacity","1");
+  }, 700);
+}
+
 $(document).ready(function() {
 
   getFeaturedPets();
+  lazyLoadIntro();
 
   $(function() {
     $('a[href*="#"]:not([href="#"])').click(function() {
