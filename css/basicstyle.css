@@ -22,6 +22,7 @@ section {
 section p {
   font-size: 20px;
 }
+
 #rescue-nav a,
 #rescue-nav a:visited,
 #rescue-nav a:focus {
@@ -80,8 +81,9 @@ section p {
   color: black;
   font-size: 18px;
   height: 30px;
+  line-height: 30px;
   text-align: center;
-  margin: 5px 10px;
+  margin: 10px 10px;
   width: 170px;
 }
 
@@ -127,6 +129,10 @@ input[type=number]::-webkit-outer-spin-button {
   text-align: center;
   transition: all .1s;
   width: 300px;
+}
+
+.shelter:last-of-type {
+  margin-bottom: 20px;
 }
 
 .shelter:hover {
@@ -247,6 +253,7 @@ footer {
 
 footer > div {
   padding: 10px 10px;
+  height: 300px;
 }
 
 footer p {
@@ -255,4 +262,33 @@ footer p {
 
 footer input {
   margin: 10px 0px 0px 10px;
+}
+
+@media screen and (max-width: 437px) {
+
+  #intro > div {
+    background: rgba(0, 80, 5, 1);
+    padding-top: 100px;
+  }
+
+  #intro > div p {
+    font-size: 15px;
+  }
+
+  #shelter-search {
+    width: 90%;
+  }
+
+}
+
+@media screen and (max-width: 616px) {
+
+  #intro > div > div {
+    width: 90%;
+    height: auto;
+  }
+
+  .shelter {
+    width: 90%;
+  }
 }
