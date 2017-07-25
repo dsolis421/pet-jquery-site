@@ -74,22 +74,6 @@ function renderPet(pet) {
     </div>');
 }
 
-/*function renderFeaturedPets(featuredpet) {
-  $('#featured-pet').empty();
-  $('#featured-pet').append(
-    '<div>\
-    <figure>\
-      <img src=' + pet.petimage + '/>\
-      <figcaption>\
-        <h4>' + pet.petname + '</h4>\
-      </figcaption>\
-    </figure>\
-    <span>Sex: ' + pet.petsex + '</span>\
-    <span>Breed: ' + pet.petbreed + '</span>\
-  </div>'
-  );
-}*/
-
 function getShelter(id) {
   updateShelterStatus('Getting that family info...');
   $.getJSON($petfinderAPI + 'shelter.get?id=' + id + '&format=json&key=' + $devkey + '&callback=?')
@@ -194,10 +178,10 @@ function getShelterPets(id) {
 
 function getSelectedShelter(id) {
   console.log('selected shelter id', id);
-  getShelter(id);
+  $selectedshelter = getShelter(id);
   //could not figure out a way to make this async after getShelter
   var timer = setInterval(function(){
-    console.log('waiting on shelter');
+    console.log('waiting on shelter ', $selectedshelter);
     if($selectedshelter){
       renderSelectedShelter($selectedshelter);
       updateShelterStatus(null);
@@ -205,50 +189,19 @@ function getSelectedShelter(id) {
       return;
     }
   }, 500);
-
-  //getShelter(id, renderSelectedShelter(selectedshelter));
-  /*setTimeout(function() {
-    renderSelectedShelter(selectedshelter);
-  }, 500);*/
-}
-
-function getRandomPet(zip) {
-  $.getJSON($petfinderAPI + 'pet.getRandom?location=' + zip + '&output=full&format=json&key=' + $devkey + '&callback=?')
-    .done(function(petApiData){
-      var randompet = petApiData.petfinder.pet;
-      console.log('random pet', randompet);
-      var featuredObject = {
-        featuredname: randompet.name.$t,
-        featuredsex: randompet.sex.$t,
-        featuredbreed: randompet.breeds.breed.$t ? randompet.breeds.breed.$t : "Unknown",
-        featuredimage: evaluatePictures(randompet.media.photos.photo, randompet.animal.$t)
-      };
-      return featuredObject
-    })
-    .error(function(err){
-      console.log('Get featured pet error! ' + err);
-    });
-}
-
-function getFeaturedPets() {
-  const ZIPSCODES = ['78641','76537','78626','78664','78680','78660','78729','78759','78666','78130'];
-  var featured = [];
-  for (i = 0; i < 11; i++) {
-    if(ZIPSCODES[i]){
-      featured.push(getRandomPet(ZIPSCODES[i]));
-    }
-  }
 }
 
 function lazyLoadIntro() {
   setTimeout(function(){
     $('#rescue-nav, #intro > div').css("opacity","1");
+    if($(window).width() <= 437){
+      $('#rescue-nav').css('background','#005005');
+    }
   }, 700);
 }
 
 $(document).ready(function() {
 
-  getFeaturedPets();
   lazyLoadIntro();
 
   $(function() {
@@ -280,7 +233,7 @@ $(document).ready(function() {
     var $scroll = $(document).scrollTop();
     if ($scroll > 300) {
       $('#rescue-nav').css('background','#005005');
-    } else if ($scroll == 0) {
+    } else if ($scroll == 0 && $(window).width() > 437) {
       $('#rescue-nav').css('background','none');
     }
   });

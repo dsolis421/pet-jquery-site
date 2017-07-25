@@ -38,8 +38,8 @@ section p {
   background: none;
   border: none;
   color: white;
-  transition: all 1s;
   opacity: 0;
+  transition: all 1s;
 }
 
 .row {
@@ -111,7 +111,7 @@ input[type=number]::-webkit-outer-spin-button {
   text-align: left;
 }
 
-#shelters {
+#shelters, #featured-pets {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -246,6 +246,21 @@ input[type=number]::-webkit-outer-spin-button {
   color: #005005;
 }
 
+#featured-pets > div {
+  width: 400px;
+  height: auto;
+  margin: 20px auto;
+}
+
+.learn-more {
+  background: #60ad5e;
+  color: white;
+  height: 35px;
+  line-height: 35px;
+  margin: 10px auto;
+  width: 150px;
+}
+
 footer {
   background: #005005;
   color: white;
@@ -265,6 +280,10 @@ footer input {
 }
 
 @media screen and (max-width: 437px) {
+
+  #rescue-nav {
+    background-color: #005005;
+  }
 
   #intro > div {
     background: rgba(0, 80, 5, 1);
