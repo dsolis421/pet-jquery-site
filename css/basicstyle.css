@@ -5,7 +5,7 @@
   --primary grey: rgb(50, 50, 50);
 }*/
 body {
-  font-family: 'Julius Sans One', sans-serif;
+  font-family: sans-serif;
   color: black;
 }
 
@@ -23,10 +23,14 @@ section p {
   font-size: 20px;
 }
 
+#logo {
+  font-family: 'Caveat Brush', cursive;
+  font-size: 30px;
+}
+
 #rescue-nav a,
 #rescue-nav a:visited,
 #rescue-nav a:focus {
-  font-size: 18px;
   color: white;
 }
 
@@ -234,6 +238,10 @@ input[type=number]::-webkit-outer-spin-button {
 #mission {
   border-top: 1px solid #005005;
   border-bottom: 1px solid #005005;
+}
+
+#mission h2 {
+  font-family: 'Caveat Brush', cursive;
 }
 
 #mission > div {
