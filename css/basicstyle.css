@@ -23,9 +23,15 @@ section p {
   font-size: 20px;
 }
 
-#logo {
+h1 {
   font-family: 'Caveat Brush', cursive;
-  font-size: 30px;
+  font-size: 150px;
+  margin: 30px auto;
+}
+
+h2 {
+  font-family: 'Caveat Brush', cursive;
+  font-size: 50px;
 }
 
 #rescue-nav a,
@@ -42,6 +48,8 @@ section p {
   background: none;
   border: none;
   color: white;
+  font-family: 'Caveat Brush', cursive;
+  font-size: 30px;
   opacity: 0;
   transition: all 1s;
 }
@@ -51,17 +59,10 @@ section p {
   padding: 0;
 }
 
-#intro {
-  background-image: url("../img/anoir-chafik-37957.jpg");
-  background-position: bottom;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
 #intro > div {
-  background: rgba(0, 80, 5, .5);
+  background: rgba(0, 80, 5, .8);
   color: white;
-  padding: 400px 10% 20px 10%;
+  padding: 200px 10% 20px 10%;
   opacity: 0;
   transition: all 1s;
 }
@@ -238,10 +239,6 @@ input[type=number]::-webkit-outer-spin-button {
 #mission {
   border-top: 1px solid #005005;
   border-bottom: 1px solid #005005;
-}
-
-#mission h2 {
-  font-family: 'Caveat Brush', cursive;
 }
 
 #mission > div {
