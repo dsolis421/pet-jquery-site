@@ -30,6 +30,7 @@ h1 {
 }
 
 h2 {
+  color: #005005;
   font-family: 'Caveat Brush', cursive;
   font-size: 50px;
 }
@@ -116,7 +117,7 @@ input[type=number]::-webkit-outer-spin-button {
   text-align: left;
 }
 
-#shelters, #featured-pets {
+#shelters, #action-call {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -171,7 +172,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .shelter-header {
-  border-bottom: 3px solid #60ad5e;
+  border: 4px solid #005005;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -190,52 +191,6 @@ input[type=number]::-webkit-outer-spin-button {
   text-align: center;
 }
 
-.shelter-pets {
-  width: 95%;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin: 5px auto;
-}
-
-.shelter-pets > div {
-  background: #2e7d32;
-  color: white;
-  width: 400px;
-  height: auto;
-  margin: 5px auto;
-  padding: 2px;
-  text-align: center;
-}
-
-.shelter-pets > div > span {
-  display: block;
-}
-
-.shelter-pets figure {
-  width: 100%;
-  overflow: hidden;
-}
-
-.shelter-pets figure img {
-  display: block;
-  margin: 0 auto;
-  height: 300px;
-  max-width: 100%;
-}
-
-.shelter-pets figcaption {
-  background: #60ad5e;
-  color: white;
-  height: 25px;
-  text-align: center;
-}
-
-.shelter-pets figcaption h4 {
-  line-height: 25px;
-}
-
 #mission {
   border-top: 1px solid #005005;
   border-bottom: 1px solid #005005;
@@ -251,10 +206,11 @@ input[type=number]::-webkit-outer-spin-button {
   color: #005005;
 }
 
-#featured-pets > div {
+#action-call > div {
   width: 400px;
   height: auto;
   margin: 20px auto;
+  padding: 5px 20px;
 }
 
 .learn-more {

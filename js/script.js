@@ -16,21 +16,6 @@ function updateShelterStatus(message) {
   };
 };
 
-function evaluatePictures(photos, animal) {
-  /*trying to ascertain if a usuable picture is available
-  otherwise display default pic based on cat or dog*/
-  var photoslength = photos.length;
-  var goodphoto = '';
-  var defaultphoto = animal === "dog" ? '../img/dogdefault_1.png' : '../img/catdefault_1.png';
-  for(i = 0;i < photoslength;i++) {
-    if(photos[i]['@size'] === "pn") {
-      goodphoto = photos[i].$t;
-      //console.log(goodphoto);
-    }
-  };
-  return goodphoto != '' ? goodphoto : defaultphoto;
-};
-
 function renderSelectedShelter(shelter) {
   console.log('trying to render ', shelter.sheltername);
   $('#shelters').fadeOut("slow","swing", function() {
@@ -56,22 +41,8 @@ function renderSelectedShelter(shelter) {
         $('html, body').animate({
           scrollTop: $('#shelter-search').offset().top - 60
         }, 500);
-        },getShelterPets(shelter.shelterid));
       });
-}
-
-function renderPet(pet) {
-  console.log('rendering pet ', pet.petname);
-  $('.shelter-pets').append('<div>\
-      <figure>\
-        <img src=' + pet.petimage + '/>\
-        <figcaption>\
-          <h4>' + pet.petname + '</h4>\
-        </figcaption>\
-      </figure>\
-      <span>Sex: ' + pet.petsex + '</span>\
-      <span>Breed: ' + pet.petbreed + '</span>\
-    </div>');
+  });
 }
 
 function getShelter(id) {
@@ -135,46 +106,6 @@ function getSheltersZip(zip) {
       console.log('Get shelters by zip error! ' + err);
     });
 };
-
-function getShelterPets(id) {
-  $.getJSON($petfinderAPI + 'shelter.getPets?id=' + id + '&output=full&format=json&key=' + $devkey + '&callback=?')
-    .done(function(petApiData){
-      console.log(petApiData);
-      var rescues = petApiData.petfinder.pets.pet;
-      var isReturnedDataArray = petApiData.petfinder.pets.hasOwnProperty('pet') && Array.isArray(petApiData.petfinder.pets.pet);
-      var isReturnedDataObject = petApiData.petfinder.pets.hasOwnProperty('pet') && typeof petApiData.petfinder.pets.pet === 'object';
-      //petfinder returns an object if only one pet exists, it returns an array of objects for multiple pets
-      if(isReturnedDataArray) {
-        console.log('found pets is an array');
-        for (x in rescues) {
-          //description data is random, holding off for now
-          //var petdescription = rescues[x].description.$t ? rescues[x].description.$t.replace("'","\'") : "Not available";
-          var petObject = {
-            petname: rescues[x].name.$t,
-            petsex: rescues[x].sex.$t,
-            petbreed: rescues[x].breeds.breed.$t ? rescues[x].breeds.breed.$t : "Unknown",
-            petimage: evaluatePictures(rescues[x].media.photos.photo, rescues[x].animal.$t)
-          };
-          renderPet(petObject);
-        };
-      } else if (isReturnedDataObject) {
-        console.log('found pet is an object');
-        var petObject = {
-          petname: rescues.name.$t,
-          petsex: rescues.sex.$t,
-          petbreed: rescues.breeds.breed.$t ? rescues.breeds.breed.$t : "Unknown",
-          petimage: evaluatePictures(rescues.media.photos.photo, rescues.animal.$t)
-        };
-        renderPet(petObject);
-      } else {
-        console.log('looked for pets but none found');
-        $('.shelter-pets').append('<h4>Looks like there are no pets currently at this shelter</h4>');
-      }
-    })
-    .error(function(err){
-      console.log('Get shelters by zip error! ' + err);
-    });
-}
 
 function getSelectedShelter(id) {
   console.log('selected shelter id', id);
