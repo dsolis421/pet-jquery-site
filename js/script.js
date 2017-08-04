@@ -142,7 +142,7 @@ $(document).ready(function() {
         target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
         if (target.length) {
           $('html, body').animate({
-            scrollTop: target.offset().top - 35
+            scrollTop: target.offset().top - 60
           }, 500);
           return false;
         }
@@ -162,7 +162,7 @@ $(document).ready(function() {
 
   $(document).scroll(function(){
     var $scroll = $(document).scrollTop();
-    if ($scroll > 300) {
+    if ($scroll > 150) {
       $('#rescue-nav').css('background','#005005');
     } else if ($scroll == 0 && $(window).width() > 437) {
       $('#rescue-nav').css('background','none');

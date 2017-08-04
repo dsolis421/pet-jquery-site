@@ -20,7 +20,7 @@ section {
 }
 
 section p {
-  font-size: 20px;
+  font-size: 25px;
 }
 
 h1 {
@@ -58,6 +58,13 @@ h2 {
 .row {
   margin: 0;
   padding: 0;
+}
+
+#intro {
+  background-image: url('../img/friends.jpg');
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 #intro > div {
