@@ -124,7 +124,7 @@ function getSelectedShelter(id) {
 
 function lazyLoadIntro() {
   setTimeout(function(){
-    $('#rescue-nav, #intro > div').css("opacity","1");
+    $('#rescue-nav, .intro > div').css("opacity","1");
     if($(window).width() <= 437){
       $('#rescue-nav').css('background','#005005');
     }
